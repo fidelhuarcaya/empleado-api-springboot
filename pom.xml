@@ -14,8 +14,7 @@
     <name>api_alumnos</name>
     <description>api_alumnos</description>
     <properties>
-        <source>11</source>
-        <target>11</target>
+        <java.version>1.8</java.version>
     </properties>
     <dependencies>
         <dependency>
