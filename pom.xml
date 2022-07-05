@@ -14,7 +14,7 @@
     <name>api_alumnos</name>
     <description>api_alumnos</description>
     <properties>
-
+        <java.version>11</java.version>
     </properties>
     <dependencies>
         <dependency>
@@ -73,14 +73,6 @@
                             <artifactId>lombok</artifactId>
                         </exclude>
                     </excludes>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>9</source>
-                    <target>9</target>
                 </configuration>
             </plugin>
 
