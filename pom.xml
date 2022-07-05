@@ -14,9 +14,7 @@
     <name>api_alumnos</name>
     <description>api_alumnos</description>
     <properties>
-        <java.version>11</java.version>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+        <java.version>9</java.version>
     </properties>
     <dependencies>
         <dependency>
