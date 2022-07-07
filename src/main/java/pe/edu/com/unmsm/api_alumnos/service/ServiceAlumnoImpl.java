@@ -2,7 +2,7 @@ package pe.edu.com.unmsm.api_alumnos.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pe.edu.com.unmsm.api_alumnos.model.Alumno;
+import pe.edu.com.unmsm.api_alumnos.model.Trabajador;
 import pe.edu.com.unmsm.api_alumnos.repository.RepositoryAlumno;
 
 import java.util.List;
@@ -18,8 +18,8 @@ public class ServiceAlumnoImpl implements ServiceAlumno{
     }
 
     @Override
-    public Alumno insertAlumno(Alumno alumno) {
-        return repositoryAlumno.save(alumno);
+    public Trabajador insertAlumno(Trabajador trabajador) {
+        return repositoryAlumno.save(trabajador);
     }
 
     @Override
@@ -28,17 +28,17 @@ public class ServiceAlumnoImpl implements ServiceAlumno{
     }
 
     @Override
-    public List<Alumno> getAllAlumnos() {
+    public List<Trabajador> getAllAlumnos() {
         return repositoryAlumno.findAll();
     }
 
     @Override
-    public Alumno updateAlumno(Alumno alumno) {
-        return repositoryAlumno.save(alumno);
+    public Trabajador updateAlumno(Trabajador trabajador) {
+        return repositoryAlumno.save(trabajador);
     }
 
     @Override
-    public Optional<Alumno> getAlumno(Long id) {
+    public Optional<Trabajador> getAlumno(Long id) {
         return repositoryAlumno.findById(id);
     }
 }

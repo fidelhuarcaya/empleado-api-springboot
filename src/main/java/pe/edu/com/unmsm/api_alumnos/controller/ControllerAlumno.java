@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import pe.edu.com.unmsm.api_alumnos.model.Alumno;
+import pe.edu.com.unmsm.api_alumnos.model.Trabajador;
 import pe.edu.com.unmsm.api_alumnos.service.ServiceAlumnoImpl;
 
 
@@ -24,15 +24,15 @@ public class ControllerAlumno {
         return new ResponseEntity<>(serviceAlumno.getAllAlumnos(), HttpStatus.OK);
     }
     @PostMapping
-    private Alumno addAlumno(@RequestBody Alumno alumno){
-        serviceAlumno.insertAlumno(alumno);
-        return serviceAlumno.insertAlumno(alumno);
+    private Trabajador addAlumno(@RequestBody Trabajador trabajador){
+        serviceAlumno.insertAlumno(trabajador);
+        return serviceAlumno.insertAlumno(trabajador);
     }
     @PutMapping
-    public ResponseEntity<Object> updateAlumno(@RequestBody Alumno alumno) {
-        System.out.println(alumno.toString());
-        if (serviceAlumno.getAlumno(alumno.getId()).isPresent())
-        serviceAlumno.updateAlumno(alumno);
+    public ResponseEntity<Object> updateAlumno(@RequestBody Trabajador trabajador) {
+        System.out.println(trabajador.toString());
+        if (serviceAlumno.getAlumno(trabajador.getId()).isPresent())
+        serviceAlumno.updateAlumno(trabajador);
         else return new ResponseEntity<>("Not exist id of alumno", HttpStatus.NOT_MODIFIED);
         return new ResponseEntity<>("Alumno is updated successsfully", HttpStatus.OK);
     }

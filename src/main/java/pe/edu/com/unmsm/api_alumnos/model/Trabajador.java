@@ -14,15 +14,15 @@ import javax.persistence.Id;
 @Setter
 @NoArgsConstructor
 @ToString
-public class Alumno {
+public class Trabajador {
 
     @Id
     @GeneratedValue
     private Long id;
 
-    private String name;
-    private String firstName;
-    private String lastName;
-    private String email;
+    private String codven;
+    private String Nomven;
+    private String Distven;
+    private String MONTO;
 
 }
