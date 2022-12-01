@@ -33,8 +33,9 @@ public class ServiceAlumnoImpl implements ServiceAlumno{
         LocalDate ld = ldt.toLocalDate();
         System.out.println(ld);
         DateTimeFormatter.ofLocalizedDateTime(FormatStyle.LONG).withLocale(Locale.FRANCE);
-
-        return repositoryAlumno.save(trabajador);
+        Trabajador tra=repositoryAlumno.save(trabajador);
+        tra.setFechaRegistro(ldt);
+        return tra;
     }
 
     @Override
