@@ -5,8 +5,16 @@ import org.springframework.stereotype.Service;
 import pe.edu.com.unmsm.api_alumnos.model.Trabajador;
 import pe.edu.com.unmsm.api_alumnos.repository.RepositoryAlumno;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.List;
+import java.util.Locale;
 import java.util.Optional;
+import java.util.Set;
 
 
 @Service
@@ -19,6 +27,13 @@ public class ServiceAlumnoImpl implements ServiceAlumno{
 
     @Override
     public Trabajador insertAlumno(Trabajador trabajador) {
+        LocalDateTime ldt = LocalDateTime
+                .parse(trabajador.getFechaRegistro().atZone(ZoneId.of("America/Lima")).toString());
+        System.out.println(ldt);
+        LocalDate ld = ldt.toLocalDate();
+        System.out.println(ld);
+        DateTimeFormatter.ofLocalizedDateTime(FormatStyle.LONG).withLocale(Locale.FRANCE);
+
         return repositoryAlumno.save(trabajador);
     }
 
