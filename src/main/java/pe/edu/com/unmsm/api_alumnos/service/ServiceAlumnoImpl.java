@@ -31,9 +31,7 @@ public class ServiceAlumnoImpl implements ServiceAlumno{
         Trabajador tra=repositoryAlumno.save(trabajador);
         ZoneId limaTime = ZoneId.of("America/Lima");
         LocalDateTime ldt = LocalDateTime.now(limaTime);
-        tra.getFechaRegistro().atZone(limaTime);
-        System.out.println(ldt);
-        DateTimeFormatter.ofLocalizedDateTime(FormatStyle.LONG).withLocale(Locale.FRANCE);
+       // tra.getFechaRegistro().atZone(limaTime);
         tra.setFechaRegistro(ldt);
         return tra;
     }
