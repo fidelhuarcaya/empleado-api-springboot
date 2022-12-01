@@ -27,15 +27,15 @@ public class ServiceAlumnoImpl implements ServiceAlumno{
 
     @Override
     public Trabajador insertAlumno(Trabajador trabajador) {
-        /*LocalDateTime ldt = LocalDateTime
+        LocalDateTime ldt = LocalDateTime
                 .parse(trabajador.getFechaRegistro().atZone(ZoneId.of("America/Lima")).toString());
         System.out.println(ldt);
         LocalDate ld = ldt.toLocalDate();
         System.out.println(ld);
         DateTimeFormatter.ofLocalizedDateTime(FormatStyle.LONG).withLocale(Locale.FRANCE);
         Trabajador tra=repositoryAlumno.save(trabajador);
-        tra.setFechaRegistro(ldt);*/
-        return repositoryAlumno.save(trabajador);
+        tra.setFechaRegistro(ldt);
+        return tra;
     }
 
     @Override
