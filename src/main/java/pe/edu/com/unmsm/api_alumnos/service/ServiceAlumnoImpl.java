@@ -59,6 +59,7 @@ public class ServiceAlumnoImpl implements ServiceAlumno{
             ZoneId limaTime = ZoneId.of("America/Lima");
             LocalDateTime ldt = LocalDateTime.now(limaTime);
             t.get().setFechaRegistro(ldt);
+            t.get().setFechaRegistro(t.get().getFechaRegistro().atZone(limaTime).toLocalDateTime());
         }
         return t;
     }
