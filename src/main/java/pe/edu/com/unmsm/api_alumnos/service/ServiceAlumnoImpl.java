@@ -60,7 +60,7 @@ public class ServiceAlumnoImpl implements ServiceAlumno{
             String aDate = "Jul 16, 2013 12:08:59 AM";
             String formattedDate = LocalDateTime.parse(t.get().getFechaRegistro().toString(), formatter)
                     .atOffset(ZoneOffset.UTC)
-                    .atZoneSameInstant(ZoneId.systemDefault())
+                    .atZoneSameInstant(limaTime)
                     .format(formatter);
             LocalDateTime aLDT = LocalDateTime.parse(formattedDate);
             t.get().setFechaRegistro(aLDT);
