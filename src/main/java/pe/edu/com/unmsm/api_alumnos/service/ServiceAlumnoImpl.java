@@ -1,20 +1,16 @@
 package pe.edu.com.unmsm.api_alumnos.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.convert.threeten.Jsr310JpaConverters;
 import org.springframework.stereotype.Service;
 import pe.edu.com.unmsm.api_alumnos.model.Trabajador;
 import pe.edu.com.unmsm.api_alumnos.repository.RepositoryAlumno;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
+import java.text.SimpleDateFormat;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
-import java.util.List;
-import java.util.Locale;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 
 
 @Service
@@ -58,8 +54,17 @@ public class ServiceAlumnoImpl implements ServiceAlumno{
         {
             ZoneId limaTime = ZoneId.of("America/Lima");
             LocalDateTime ldt = LocalDateTime.now(limaTime);
-            t.get().setFechaRegistro(ldt);
-            t.get().setFechaRegistro(t.get().getFechaRegistro().atZone(limaTime).toLocalDateTime());
+
+            DateTimeFormatter formatter
+                    = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss[.SSSSSS]", Locale.ENGLISH);
+            String aDate = "Jul 16, 2013 12:08:59 AM";
+            String formattedDate = LocalDateTime.parse(t.get().getFechaRegistro().toString(), formatter)
+                    .atOffset(ZoneOffset.UTC)
+                    .atZoneSameInstant(ZoneId.systemDefault())
+                    .format(formatter);
+            LocalDateTime aLDT = LocalDateTime.parse(formattedDate);
+            t.get().setFechaRegistro(aLDT);
+
         }
         return t;
     }
