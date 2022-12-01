@@ -31,7 +31,6 @@ public class ServiceAlumnoImpl implements ServiceAlumno{
         Trabajador tra=repositoryAlumno.save(trabajador);
         ZoneId limaTime = ZoneId.of("America/Lima");
         LocalDateTime ldt = LocalDateTime.now(limaTime);
-       // tra.getFechaRegistro().atZone(limaTime);
         tra.setFechaRegistro(ldt);
         return tra;
     }
@@ -53,6 +52,14 @@ public class ServiceAlumnoImpl implements ServiceAlumno{
 
     @Override
     public Optional<Trabajador> getAlumno(Long id) {
-        return repositoryAlumno.findById(id);
+
+        Optional<Trabajador> t=repositoryAlumno.findById(id);
+        if (t.isPresent())
+        {
+            ZoneId limaTime = ZoneId.of("America/Lima");
+            LocalDateTime ldt = LocalDateTime.now(limaTime);
+            t.get().setFechaRegistro(ldt);
+        }
+        return t;
     }
 }
